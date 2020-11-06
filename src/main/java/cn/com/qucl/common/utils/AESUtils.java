@@ -1,7 +1,7 @@
 package cn.com.qucl.common.utils;
 
 
-import cn.com.qucl.common.exception.DataConvertException;
+import cn.com.qucl.common.exceptions.DataConvertException;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.codec.binary.Base64;
 

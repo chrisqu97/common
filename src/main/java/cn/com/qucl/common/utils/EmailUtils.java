@@ -1,6 +1,6 @@
 package cn.com.qucl.common.utils;
 
-import cn.com.qucl.common.exception.CheckArgumentException;
+import cn.com.qucl.common.exceptions.CheckArgumentException;
 import org.springframework.mail.SimpleMailMessage;
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.mail.javamail.MimeMessageHelper;

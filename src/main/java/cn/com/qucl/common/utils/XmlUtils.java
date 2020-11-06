@@ -1,6 +1,6 @@
 package cn.com.qucl.common.utils;
 
-import cn.com.qucl.common.exception.DataConvertException;
+import cn.com.qucl.common.exceptions.DataConvertException;
 import com.thoughtworks.xstream.XStream;
 import com.thoughtworks.xstream.io.xml.DomDriver;
 import lombok.extern.slf4j.Slf4j;
