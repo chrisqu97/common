@@ -1,5 +1,7 @@
 package cn.com.qucl.common.exception;
 
+import org.springframework.http.HttpStatus;
+
 /**
  * @author qucl
  * @date 2019/1/11 15:07
@@ -8,5 +10,6 @@ package cn.com.qucl.common.exception;
 public class DataOutputException extends BaseException{
     public DataOutputException(String message) {
         super(message);
+        setCode(HttpStatus.INTERNAL_SERVER_ERROR.value());
     }
 }
