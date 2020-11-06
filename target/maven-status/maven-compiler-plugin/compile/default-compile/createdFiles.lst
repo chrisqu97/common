@@ -1,5 +1,7 @@
+cn\com\qucl\common\exceptions\DataIsExistException.class
 cn\com\qucl\common\utils\HttpUtils.class
 cn\com\qucl\common\utils\CollectionUtils.class
+cn\com\qucl\common\utils\DateTimeUtils.class
 cn\com\qucl\common\enums\ExcelCellTypeEnum.class
 cn\com\qucl\common\pojo\vo\PageResultVo.class
 cn\com\qucl\common\pojo\dto\ExcelMultipartFile.class
@@ -10,7 +12,6 @@ cn\com\qucl\common\exceptions\CheckArgumentException.class
 cn\com\qucl\common\enums\StateEnum.class
 cn\com\qucl\common\utils\ExcelUtils.class
 cn\com\qucl\common\exceptions\BaseException.class
-cn\com\qucl\common\exceptions\DuplicationOfAddException.class
 cn\com\qucl\common\exceptions\DataNotFoundException.class
 cn\com\qucl\common\enums\ExcelTypeEnum.class
 cn\com\qucl\common\utils\RSAUtils.class
@@ -18,7 +19,6 @@ cn\com\qucl\common\exceptions\DataConvertException.class
 cn\com\qucl\common\annotations\ExcelIgnore.class
 cn\com\qucl\common\pojo\vo\ResultVo.class
 cn\com\qucl\common\annotations\ExcelCol.class
-cn\com\qucl\common\exceptions\DuplicationOfNameException.class
 cn\com\qucl\common\utils\AESUtils.class
 cn\com\qucl\common\utils\EmailUtils.class
 cn\com\qucl\common\utils\KeywordCheckUtils.class
