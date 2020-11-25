@@ -7,7 +7,7 @@ import org.springframework.http.HttpStatus;
  * @date 2018/11/2 16:12
  * 接口默认返回格式
  */
-public class ResultVo {
+public class Result {
     /**
      * 成功
      */
@@ -32,7 +32,7 @@ public class ResultVo {
     /**
      * 返回成功
      */
-    public ResultVo success() {
+    public Result success() {
         this.success = true;
         this.timestamp = System.currentTimeMillis();
         this.code = HttpStatus.OK.value();
@@ -45,7 +45,7 @@ public class ResultVo {
      *
      * @param data 数据
      */
-    public ResultVo success(Object data) {
+    public Result success(Object data) {
         this.success = true;
         this.code = HttpStatus.OK.value();
         this.message = HttpStatus.OK.name();
@@ -59,7 +59,7 @@ public class ResultVo {
      *
      * @param message 消息
      */
-    public ResultVo error(String message) {
+    public Result error(String message) {
         this.success = false;
         this.code = HttpStatus.INTERNAL_SERVER_ERROR.value();
         this.message = message;
@@ -67,7 +67,7 @@ public class ResultVo {
         return this;
     }
 
-    public ResultVo error(Integer code, String message) {
+    public Result error(Integer code, String message) {
         this.success = false;
         this.code = code;
         this.message = message;

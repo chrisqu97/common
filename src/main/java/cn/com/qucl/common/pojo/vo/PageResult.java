@@ -5,7 +5,7 @@ package cn.com.qucl.common.pojo.vo;
  * @date 2020/9/30 15:26
  * 分页结果展示
  */
-public class PageResultVo extends ResultVo {
+public class PageResult extends Result {
     /**
      * 页码
      */
