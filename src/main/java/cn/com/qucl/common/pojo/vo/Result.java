@@ -55,6 +55,21 @@ public class Result {
     }
 
     /**
+     * 返回成功
+     *
+     * @param message 消息
+     * @param data    数据
+     */
+    public Result success(String message, Object data) {
+        this.success = true;
+        this.code = HttpStatus.OK.value();
+        this.message = message;
+        this.data = data;
+        this.timestamp = System.currentTimeMillis();
+        return this;
+    }
+
+    /**
      * 失败
      *
      * @param message 消息
