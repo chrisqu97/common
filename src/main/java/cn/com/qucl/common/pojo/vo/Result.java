@@ -7,7 +7,7 @@ import org.springframework.http.HttpStatus;
  * @date 2018/11/2 16:12
  * 接口默认返回格式
  */
-public class Result {
+public class Result<T> {
     /**
      * 成功
      */
@@ -27,7 +27,7 @@ public class Result {
     /**
      * 内容
      */
-    private Object data;
+    private T data;
 
     /**
      * 返回成功
@@ -45,7 +45,7 @@ public class Result {
      *
      * @param data 数据
      */
-    public Result success(Object data) {
+    public Result<T> success(T data) {
         this.success = true;
         this.code = HttpStatus.OK.value();
         this.message = HttpStatus.OK.name();
@@ -58,9 +58,23 @@ public class Result {
      * 返回成功
      *
      * @param message 消息
+     */
+    public Result<T> success(String message) {
+        this.success = true;
+        this.code = HttpStatus.OK.value();
+        this.message = message;
+        this.timestamp = System.currentTimeMillis();
+        return this;
+    }
+
+
+    /**
+     * 返回成功
+     *
+     * @param message 消息
      * @param data    数据
      */
-    public Result success(String message, Object data) {
+    public Result<T> success(String message, T data) {
         this.success = true;
         this.code = HttpStatus.OK.value();
         this.message = message;
@@ -122,11 +136,11 @@ public class Result {
         this.message = message;
     }
 
-    public Object getData() {
+    public T getData() {
         return data;
     }
 
-    public void setData(Object data) {
+    public void setData(T data) {
         this.data = data;
     }
 }
