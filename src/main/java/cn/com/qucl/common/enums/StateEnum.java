@@ -1,4 +1,4 @@
-package cn.com.qucl.common.enums;
+package cn.com.qucl.common.constant.enums;
 
 /**
  * @author qucl
