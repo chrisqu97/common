@@ -1,6 +1,6 @@
 package cn.com.qucl.common.exception;
 
-import org.springframework.http.HttpStatus;
+import cn.com.qucl.common.enums.ResponseStatusEnum;
 
 /**
  * @author qucl
@@ -10,6 +10,6 @@ import org.springframework.http.HttpStatus;
 public class CheckArgumentException extends BaseException {
     public CheckArgumentException(String message) {
         super(message);
-        setCode(HttpStatus.BAD_REQUEST.value());
+        setCode(ResponseStatusEnum.BAD_REQUEST.code());
     }
 }

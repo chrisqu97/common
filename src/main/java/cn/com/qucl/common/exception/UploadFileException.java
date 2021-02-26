@@ -1,6 +1,6 @@
 package cn.com.qucl.common.exception;
 
-import org.springframework.http.HttpStatus;
+import cn.com.qucl.common.enums.ResponseStatusEnum;
 
 /**
  * @author qucl
@@ -10,11 +10,11 @@ import org.springframework.http.HttpStatus;
 public class UploadFileException extends BaseException {
     public UploadFileException(String message) {
         super(message);
-        setCode(HttpStatus.INTERNAL_SERVER_ERROR.value());
+        setCode(ResponseStatusEnum.INTERNAL_SERVER_ERROR.code());
     }
 
     public UploadFileException() {
         super("文件上传异常");
-        setCode(HttpStatus.INTERNAL_SERVER_ERROR.value());
+        setCode(ResponseStatusEnum.INTERNAL_SERVER_ERROR.code());
     }
 }

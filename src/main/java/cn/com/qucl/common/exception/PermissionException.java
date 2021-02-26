@@ -1,6 +1,6 @@
 package cn.com.qucl.common.exception;
 
-import org.springframework.http.HttpStatus;
+import cn.com.qucl.common.enums.ResponseStatusEnum;
 
 /**
  * @author qucl
@@ -10,11 +10,11 @@ import org.springframework.http.HttpStatus;
 public class PermissionException extends BaseException {
     public PermissionException(String message) {
         super(message);
-        setCode(HttpStatus.UNAUTHORIZED.value());
+        setCode(ResponseStatusEnum.UNAUTHORIZED.code());
     }
 
     public PermissionException() {
         super("权限不足");
-        setCode(HttpStatus.UNAUTHORIZED.value());
+        setCode(ResponseStatusEnum.UNAUTHORIZED.code());
     }
 }

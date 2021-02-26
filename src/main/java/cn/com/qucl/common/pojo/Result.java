@@ -1,6 +1,6 @@
 package cn.com.qucl.common.pojo;
 
-import org.springframework.http.HttpStatus;
+import cn.com.qucl.common.enums.ResponseStatusEnum;
 
 /**
  * @author qucl
@@ -29,15 +29,21 @@ public class Result<T> {
      */
     private T data;
 
+    private static <T> Result<T> newInstance(Boolean success, Integer code, String message, T data) {
+        Result<T> result = new Result<>();
+        result.code = code;
+        result.success = success;
+        result.message = message;
+        result.data = data;
+        result.timestamp = System.currentTimeMillis();
+        return result;
+    }
+
     /**
      * 返回成功
      */
-    public Result success() {
-        this.success = true;
-        this.timestamp = System.currentTimeMillis();
-        this.code = HttpStatus.OK.value();
-        this.message = HttpStatus.OK.name();
-        return this;
+    public static Result<?> success() {
+        return newInstance(Boolean.TRUE, ResponseStatusEnum.OK.code(), ResponseStatusEnum.OK.message(), null);
     }
 
     /**
@@ -45,12 +51,8 @@ public class Result<T> {
      *
      * @param message 消息
      */
-    public Result<T> success(String message) {
-        this.success = true;
-        this.code = HttpStatus.OK.value();
-        this.message = message;
-        this.timestamp = System.currentTimeMillis();
-        return this;
+    public static Result<?> success(String message) {
+        return newInstance(Boolean.TRUE, ResponseStatusEnum.OK.code(), message, null);
     }
 
 
@@ -60,13 +62,8 @@ public class Result<T> {
      * @param message 消息
      * @param data    数据
      */
-    public Result<T> success(String message, T data) {
-        this.success = true;
-        this.code = HttpStatus.OK.value();
-        this.message = message;
-        this.data = data;
-        this.timestamp = System.currentTimeMillis();
-        return this;
+    public static <T> Result<T> success(String message, T data) {
+        return newInstance(Boolean.TRUE, ResponseStatusEnum.OK.code(), message, data);
     }
 
     /**
@@ -74,28 +71,22 @@ public class Result<T> {
      *
      * @param message 消息
      */
-    public Result error(String message) {
-        this.success = false;
-        this.code = HttpStatus.INTERNAL_SERVER_ERROR.value();
-        this.message = message;
-        this.timestamp = System.currentTimeMillis();
-        return this;
+    public static Result<?> error(String message) {
+        return newInstance(Boolean.FALSE, ResponseStatusEnum.INTERNAL_SERVER_ERROR.code(), message, null);
     }
 
-    public Result error(Integer code, String message) {
-        this.success = false;
-        this.code = code;
-        this.message = message;
-        this.timestamp = System.currentTimeMillis();
-        return this;
+    /**
+     * 失败
+     *
+     * @param code    错误码
+     * @param message 消息
+     */
+    public static Result<?> error(Integer code, String message) {
+        return newInstance(Boolean.FALSE, code, message, null);
     }
 
     public Boolean getSuccess() {
         return success;
-    }
-
-    public void setSuccess(Boolean success) {
-        this.success = success;
     }
 
     public Integer getCode() {
@@ -108,10 +99,6 @@ public class Result<T> {
 
     public Long getTimestamp() {
         return timestamp;
-    }
-
-    public void setTimestamp(Long timestamp) {
-        this.timestamp = timestamp;
     }
 
     public String getMessage() {
